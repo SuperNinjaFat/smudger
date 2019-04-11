@@ -1,9 +1,8 @@
-﻿  tests.cpp
+﻿  stdafx.cpp
+  tests.cpp
 LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
      Creating library C:\Users\weeks\Documents\college-directory\year-4\semester-2\software-dev-methods\smudger\smudger\Release\tests.lib and object C:\Users\weeks\Documents\college-directory\year-4\semester-2\software-dev-methods\smudger\smudger\Release\tests.exp
   Generating code
-  34 of 356 functions ( 9.6%) were compiled, the rest were copied from previous compilation.
-    24 functions were new in current compilation
-    28 functions had inline decision re-evaluated but remain unchanged
+  All 333 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   Tests.vcxproj -> C:\Users\weeks\Documents\college-directory\year-4\semester-2\software-dev-methods\smudger\smudger\Release\tests.dll

@@ -11,49 +11,46 @@
 
 using namespace std;
 
-string readFile(string filename) {
-	string contents = "";
+int countInstanceWrapper(string phrase, string filename) {
+	return countInstances(phrase, filename);
+}
+
+int countInstances(string phrase, string filename) {
+	// Will check how many instances of the given phrase exist within the filename
 	ifstream file;
 	file.open(filename);
 	if (file.is_open()) {
 		stringstream buffer;
 		buffer << file.rdbuf();
 		file.close();
-		contents = buffer.str();
-	}
-	
-	// Warning may sometimes be null - must catch
-	return contents;
-}
+		string contents = buffer.str();
+		
+		int fileLength = contents.length();
+		int phraseLength = phrase.length();
+		int instances = 0;
 
-int countInstances(string phrase, string filename) {
-	// Will check how many instances of the given phrase exist within the filename
-	string contents = readFile(filename);
-	if (contents == "") // If the contents could not be read
+		// Goes through entire contents
+		for(int i = 0; i < fileLength - phraseLength; i++){
+			int j;
+
+			// Now checks to see if the phrase is in contents
+			for (j = 0; j < phraseLength; j++) {
+				if (contents[i + j] != phrase[j])
+					break;
+			}
+
+			// Checks to see if the entire phrase existed
+			if (j == phraseLength) {
+				instances++;
+				j = 0;
+			}
+		}
+		
+		return instances;
+	}
+	else {
 		return -1;
-		
-	int fileLength = contents.length();
-	int phraseLength = phrase.length();
-	int instances = 0;
-
-	// Goes through entire contents
-	for(int i = 0; i < fileLength - phraseLength; i++){
-		int j;
-
-		// Now checks to see if the phrase is in contents
-		for (j = 0; j < phraseLength; j++) {
-			if (contents[i + j] != phrase[j])
-				break;
-		}
-
-		// Checks to see if the entire phrase existed
-		if (j == phraseLength) {
-			instances++;
-			j = 0;
-		}
 	}
-		
-	return instances;
 }
 
 void replaceWords(string phrase, string filename) {

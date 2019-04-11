@@ -27,18 +27,7 @@ namespace Tests
 				the passed phrase / word appears within the given filename
 			*/
 			int expected = 3;
-			int actual = countInstances("word", "C:/Users/weeks/Documents/college-directory/year-4/semester-2/software-dev-methods/smudger/smudger/test.txt");
-			Assert::AreEqual(expected, actual);
-		}
-
-		TEST_METHOD(ReadFile) {
-			/*
-				readFile(string):
-				readFile should open the given file and return the entire contents
-			*/
-
-			string actual = "Welcome to smudger. This is a program that will ask a user for the path of a textfile and also ask for a word or phrase. This word or phrase will then be used to randomly replace words from within the given textfile. Give it a shot and smudge your files!";
-			string expected = readFile("C:/Users/weeks/Documents/college-directory/year-4/semester-2/software-dev-methods/smudger/smudger/test.txt");
+			int actual = countInstanceWrapper("word", "C:/Users/weeks/Documents/college-directory/year-4/semester-2/software-dev-methods/smudger/smudger/test.txt");
 			Assert::AreEqual(expected, actual);
 		}
 

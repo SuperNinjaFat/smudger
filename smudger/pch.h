@@ -18,7 +18,7 @@ void printMessage();
 void replaceWords(string phrase, string filename);
 void addWords(string phrase, string filename);
 int countInstances(string phrase, string filename);
-string readFile(string filename);
+int countInstanceWrapper(string phrase, string filename);
 
 
 #endif //PCH_H
