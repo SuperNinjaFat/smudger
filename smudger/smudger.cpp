@@ -67,7 +67,7 @@ void printMessage() {
 
 int main()
 {
-	cout << countInstances("word", "../smudger/test.txt");
+	cout << countInstances("word", "C:/Users/weeks/Documents/college-directory/year-4/semester-2/software-dev-methods/smudger/smudger/test.txt");
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

@@ -27,7 +27,7 @@ namespace Tests
 				the passed phrase / word appears within the given filename
 			*/
 			int expected = 3;
-			int actual = countInstanceWrapper("word", "../smudger/test.txt");
+			int actual = countInstanceWrapper("word", "C:/Users/weeks/Documents/college-directory/year-4/semester-2/software-dev-methods/smudger/smudger/test.txt");
 			Assert::AreEqual(expected, actual);
 		}
 
@@ -37,13 +37,13 @@ namespace Tests
 				replaceWords should use the given phrase and replace
 				words within the given string randomly
 
-				Replace words should name a file the same name but suffixed
+				Replace words should output to a file with the same name but suffixed
 				with _smudged	i.e. test.txt --> test_smudged.txt
 			*/
 
-			int amountBefore = countInstances("TDD", "../smudger/test.txt");
-			replaceWords("TDD", "../smudger/test.txt");
-			int amountAfter = countInstances("TDD", "../smudger/test_smudged.txt");
+			int amountBefore = countInstances("TDD", "C:/Users/weeks/Documents/college-directory/year-4/semester-2/software-dev-methods/smudger/smudger/test.txt");
+			replaceWords("TDD", "C:/Users/weeks/Documents/college-directory/year-4/semester-2/software-dev-methods/smudger/smudger/test.txt");
+			int amountAfter = countInstances("TDD", "C:/Users/weeks/Documents/college-directory/year-4/semester-2/software-dev-methods/smudger/smudger/test_smudged.txt");
 
 			Assert::IsTrue(amountAfter > amountBefore);
 		}
@@ -51,9 +51,18 @@ namespace Tests
 
 	TEST_CLASS(WordAddition) {
 		TEST_METHOD(AddWords) {
-			int amountBefore = countInstances("TDD", "../smudger/test.txt");
-			addWords("TDD", "../smudger/test.txt");
-			int amountAfter = countInstances("TDD", "../smudger/test_smudged.txt");
+			/*
+				addWords(string, string):
+				addWords should use the given phrase and insert it
+				into the file at random points
+
+				Add words should output to a file with the same name but suffixed
+				with _smudged	i.e. test.txt --> test_smudged.txt
+			*/
+
+			int amountBefore = countInstances("TDD", "C:/Users/weeks/Documents/college-directory/year-4/semester-2/software-dev-methods/smudger/smudger/test.txt");
+			addWords("TDD", "C:/Users/weeks/Documents/college-directory/year-4/semester-2/software-dev-methods/smudger/smudger/test.txt");
+			int amountAfter = countInstances("TDD", "C:/Users/weeks/Documents/college-directory/year-4/semester-2/software-dev-methods/smudger/smudger/test_smudged.txt");
 
 			Assert::IsTrue(amountAfter > amountBefore);
 		}

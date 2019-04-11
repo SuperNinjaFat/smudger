@@ -1,0 +1,8 @@
+﻿  pch.cpp
+  smudger.cpp
+c:\users\weeks\documents\college-directory\year-4\semester-2\software-dev-methods\smudger\smudger\smudger.cpp(28): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+c:\users\weeks\documents\college-directory\year-4\semester-2\software-dev-methods\smudger\smudger\smudger.cpp(29): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Generating code
+  All 193 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  smudger.vcxproj -> C:\Users\weeks\Documents\college-directory\year-4\semester-2\software-dev-methods\smudger\smudger\x64\Release\smudger.exe

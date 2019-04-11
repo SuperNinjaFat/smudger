@@ -1,0 +1,6 @@
+﻿  stdafx.cpp
+  tests.cpp
+c:\users\weeks\documents\college-directory\year-4\semester-2\software-dev-methods\smudger\smudger\smudger.cpp(28): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+c:\users\weeks\documents\college-directory\year-4\semester-2\software-dev-methods\smudger\smudger\smudger.cpp(29): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+     Creating library C:\Users\weeks\Documents\college-directory\year-4\semester-2\software-dev-methods\smudger\smudger\x64\Debug\tests.lib and object C:\Users\weeks\Documents\college-directory\year-4\semester-2\software-dev-methods\smudger\smudger\x64\Debug\tests.exp
+  Tests.vcxproj -> C:\Users\weeks\Documents\college-directory\year-4\semester-2\software-dev-methods\smudger\smudger\x64\Debug\tests.dll
