@@ -27,7 +27,7 @@ namespace Tests
 				the passed phrase / word appears within the given filename
 			*/
 			int expected = 3;
-			int actual = countInstanceWrapper("word", "C:/Users/weeks/Documents/college-directory/year-4/semester-2/software-dev-methods/smudger/smudger/test.txt");
+			int actual = countInstanceWrapper("word", "C:/Users/super/Documents/GitHub/smudger/smudger/test.txt");
 			Assert::AreEqual(expected, actual);
 		}
 
@@ -41,9 +41,9 @@ namespace Tests
 				with _smudged	i.e. test.txt --> test_smudged.txt
 			*/
 
-			int amountBefore = countInstances("TDD", "C:/Users/weeks/Documents/college-directory/year-4/semester-2/software-dev-methods/smudger/smudger/test.txt");
-			replaceWords("TDD", "C:/Users/weeks/Documents/college-directory/year-4/semester-2/software-dev-methods/smudger/smudger/test.txt");
-			int amountAfter = countInstances("TDD", "C:/Users/weeks/Documents/college-directory/year-4/semester-2/software-dev-methods/smudger/smudger/test_smudged.txt");
+			int amountBefore = countInstances("TDD", "C:/Users/super/Documents/GitHub/smudger/smudger/test.txt");
+			replaceWords("TDD", "C:/Users/super/Documents/GitHub/smudger/smudger/test.txt");
+			int amountAfter = countInstances("TDD", "C:/Users/super/Documents/GitHub/smudger/smudger/test_smudged.txt");
 
 			Assert::IsTrue(amountAfter > amountBefore);
 		}
@@ -60,9 +60,9 @@ namespace Tests
 				with _smudged	i.e. test.txt --> test_smudged.txt
 			*/
 
-			int amountBefore = countInstances("TDD", "C:/Users/weeks/Documents/college-directory/year-4/semester-2/software-dev-methods/smudger/smudger/test.txt");
-			addWords("TDD", "C:/Users/weeks/Documents/college-directory/year-4/semester-2/software-dev-methods/smudger/smudger/test.txt");
-			int amountAfter = countInstances("TDD", "C:/Users/weeks/Documents/college-directory/year-4/semester-2/software-dev-methods/smudger/smudger/test_smudged.txt");
+			int amountBefore = countInstances("TDD", "C:/super/Documents/GitHub/smudger/smudger/test.txt");
+			addWords("TDD", "C:/Users/super/Documents/GitHub/smudger/smudger/test.txt");
+			int amountAfter = countInstances("TDD", "C:/Users/super/Documents/GitHub/smudger/smudger/test_smudged.txt");
 
 			Assert::IsTrue(amountAfter > amountBefore);
 		}
