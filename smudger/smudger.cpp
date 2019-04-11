@@ -57,6 +57,10 @@ void replaceWords(string phrase, string filename) {
 
 }
 
+void addWords(string phrase, string filename) {
+
+}
+
 void printMessage() {
 	std::cout << "Hello World!\n";
 }

@@ -36,11 +36,24 @@ namespace Tests
 				replaceWords(string, string):
 				replaceWords should use the given phrase and replace
 				words within the given string randomly
+
+				Replace words should name a file the same name but suffixed
+				with _smudged	i.e. test.txt --> test_smudged.txt
 			*/
 
-			int amountBefore = countInstances("TDD", "./test.txt");
-			replaceWords("TDD", "./test.txt");
-			int amountAfter = countInstances("TDD", "./test.txt");
+			int amountBefore = countInstances("TDD", "../smudger/test.txt");
+			replaceWords("TDD", "../smudger/test.txt");
+			int amountAfter = countInstances("TDD", "../smudger/test_smudged.txt");
+
+			Assert::IsTrue(amountAfter > amountBefore);
+		}
+	};
+
+	TEST_CLASS(WordAddition) {
+		TEST_METHOD(AddWords) {
+			int amountBefore = countInstances("TDD", "../smudger/test.txt");
+			addWords("TDD", "../smudger/test.txt");
+			int amountAfter = countInstances("TDD", "../smudger/test_smudged.txt");
 
 			Assert::IsTrue(amountAfter > amountBefore);
 		}
