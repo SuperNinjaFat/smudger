@@ -8,10 +8,12 @@
 #include <fstream>
 #include <vector>
 #include <sstream>
+#include <stdlib.h>
+#include <time.h>
 
 using namespace std;
 
-const string directoryMaster = "weeks/Documents/college-directory/year-4/semester-2/software-dev-methods"; //"super/Documents/GitHub"; 
+const string directoryMaster = "super/Documents/GitHub"; //"weeks/Documents/college-directory/year-4/semester-2/software-dev-methods"; 
 
 
 string readFile(string filename) {
@@ -70,12 +72,107 @@ int countInstances(string phrase, string filename) {
 	}
 }
 
+string newName(string filename) {
+	string newFilename = filename;
+	return newFilename.insert(filename.size() - 4, "_smudged");
+}
+
+int wordsInFile(string contents, int fileLength) {
+	int words = 0;
+	for (int i = 0; i < fileLength; i++) {
+		if (contents[i] == ' ')
+			words++;
+	}
+	return words;
+}
+
 void replaceWords(string phrase, string filename) {
 
+	//create name for new file
+	string newFilename = newName(filename);
+
+	ifstream file;
+	file.open(filename);
+	if (file.is_open()) {
+		stringstream buffer;
+		buffer << file.rdbuf();
+		file.close();
+		string contents = buffer.str();
+
+		int fileLength = contents.length();
+
+		//finds how many words there are in the entire file
+		int words = wordsInFile(contents, fileLength);
+		//generate a random place to inject the word
+		int loc = generateRandLoc(words);
+
+
+		ofstream outputFile;
+		outputFile.open(newFilename);
+		if (outputFile.is_open()) {
+			vector<string> contents = readFileToVector(filename);
+			for (int i = 0; i < int(contents.size()); i++) {
+				if (i != loc) {
+					if (i == contents.size())
+						outputFile << contents[i].c_str();
+					else 
+						outputFile << contents[i].c_str() << ' ';
+				}
+				else {
+					outputFile << phrase << ' ';
+				}
+			}
+			outputFile.close();
+		}
+	}
 }
 
 void addWords(string phrase, string filename) {
 
+	//create name for new file
+	string newFilename = newName(filename);
+
+	ifstream file;
+	file.open(filename);
+	if (file.is_open()) {
+		stringstream buffer;
+		buffer << file.rdbuf();
+		file.close();
+		string contents = buffer.str();
+
+		int fileLength = contents.length();
+
+		//finds how many words there are in the entire file
+		int words = wordsInFile(contents, fileLength);
+		//generate a random place to inject the word
+		int loc = generateRandLoc(words);
+
+
+		ofstream outputFile;
+		outputFile.open(newFilename);
+		if (outputFile.is_open()) {
+			vector<string> contents = readFileToVector(filename);
+			for (int i = 0; i < int(contents.size()); i++) {
+				if (i != loc) {
+					if (i == contents.size())
+						outputFile << contents[i].c_str();
+					else
+						outputFile << contents[i].c_str() << ' ';
+				}
+				else {
+					outputFile << contents[i].c_str() << ' ' << phrase << ' ';
+				}
+			}
+			outputFile.close();
+		}
+	}
+}
+
+int generateRandLoc(int wordAmount) {
+	//adapted from http://www.cplusplus.com/reference/cstdlib/rand/
+	/* initialize random seed: */
+	srand(time(NULL));
+	return rand() % wordAmount + 1;
 }
 
 void batOutput(string batName, string source) {
@@ -138,11 +235,12 @@ int argumentEnough(int argc, char* argv[]) {
 
 int main(int argc, char* argv[])
 {
-	batOutput("testingBat.bat", "C:/Users/" + directoryMaster + "/smudger/smudger/test.txt");
-	/*if (argumentEnough(argc, argv) == 1)
-		return 1;*/
-	
-	cout << countInstances("word", "C:/Users/" + directoryMaster + "/smudger/smudger/test.txt");
+	//addWords("ploopy", "C:/Users/" + directoryMaster + "/smudger/smudger/test.txt");
+	//batOutput("testingBat.bat", "C:/Users/" + directoryMaster + "/smudger/smudger/test.txt");
+	if (argumentEnough(argc, argv) == 1)
+		return 1;
+	argumentHandler(argc, argv);
+	//cout << countInstances("word", "C:/Users/" + directoryMaster + "/smudger/smudger/test.txt");
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

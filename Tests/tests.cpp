@@ -17,19 +17,21 @@ namespace Tests
 		}
 		TEST_METHOD(TestArgumentNotEnough)
 		{
-			int argc = 2;
-			char* argv[2];
+			int argc = 1;
+			char* argv[1];
 			argv[0] = "smudger.exe";
-			argv[1] = "NotEnoughArguments";
-			argumentEnough(argc, argv);
+			Assert::AreEqual(1, argumentEnough(argc, argv));
 		}
 		TEST_METHOD(TestArgumentEnough)
 		{
 			int argc = 2;
 			char* argv[2];
 			argv[0] = "smudger.exe";
-			argv[1] = "NotEnoughArguments";
-			argumentEnough(argc, argv);
+			argv[1] = "-d";
+			argv[2] = "test.txt";
+			argv[3] = "-r";
+			argv[4] = "hello";
+			Assert::AreEqual(0, argumentEnough(argc, argv));
 		}
 		TEST_METHOD(TestArgumentHandler)
 		{
@@ -59,18 +61,16 @@ namespace Tests
 				https://simulationcorner.net/index.php?page=sam
 				Use demo.bat as an example, same.exe can only read 12 words long
 			*/
-			int argc = 3;
-			//char* argv[3];
-			string* actual = batOutput("demo1.bat", "C:/Users/" + directoryMaster + "/smudger/smudger/test.txt");
-			string expected[6];
-			ifstream file("C:/Users/" + directoryMaster + "/smudger/smudger/demo.bat");
-			string myArray[6];
-			if (file.is_open()) {
-				for (int i = 0; i < sizeof(actual); i++)
-				{
-					file >> expected[i];
-					Assert::AreEqual(expected[i], actual[i]);
+			batOutput("demo1.bat", "C:/Users/" + directoryMaster + "/smudger/smudger/test.txt");
+			ifstream expectedFile;
+			string expectedFileName = "C:/Users/" + directoryMaster + "/smudger/smudger/testingBat.bat";
+			expectedFile.open(expectedFileName);
+			if (expectedFile.is_open()) {
+				vector<string> contents = readFileToVector(expectedFileName);
+				for (int i = 0; i < int(contents.size()); i) {
+					//Assert::AreEqual(contents[i], actual[i]);
 				}
+				expectedFile.close();
 			}
 		}
 	};

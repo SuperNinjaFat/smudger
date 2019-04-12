@@ -30,5 +30,8 @@ void show_usage(string name);
 int argumentEnough(int argc, char* argv[]);
 // vector<string> readFileToVector(string filename);
 string readFile(string filename);
+int generateRandLoc(int wordAmount);
+int wordsInFile(string contents, int fileLength);
+string newName(string filename);
 
 #endif //PCH_H
