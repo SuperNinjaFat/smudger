@@ -239,8 +239,14 @@ int main(int argc, char* argv[])
 	//batOutput("testingBat.bat", "C:/Users/" + directoryMaster + "/smudger/smudger/test.txt");
 	if (argumentEnough(argc, argv) == 1)
 		return 1;
-	argumentHandler(argc, argv);
-	//cout << countInstances("word", "C:/Users/" + directoryMaster + "/smudger/smudger/test.txt");
+	argument obj = argumentHandler(argc, argv);
+	if (obj.command == "-r") {
+		cout << "Replacing words\n";
+		replaceWords(obj.phrase, obj.filename);
+	} else if (obj.command == "-a") {
+		cout << "Adding words\n";
+		addWords(obj.phrase, obj.filename);
+	}
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

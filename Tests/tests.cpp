@@ -97,9 +97,9 @@ namespace Tests
 				with _smudged	i.e. test.txt --> test_smudged.txt
 			*/
 
-			int amountBefore = countInstances("TDD", "C:/Users/" + directoryMaster + "/smudger/smudger/test.txt");
-			replaceWords("TDD", "C:/Users/" + directoryMaster + "/smudger/smudger/test.txt");
-			int amountAfter = countInstances("TDD", "C:/Users/" + directoryMaster + "/smudger/smudger/test_smudged.txt");
+			int amountBefore = countInstances("TDD", "C:/Users/" + directoryMaster + "/smudger/smudger/testReplace.txt");
+			replaceWords("TDD", "C:/Users/" + directoryMaster + "/smudger/smudger/testReplace.txt");
+			int amountAfter = countInstances("TDD", "C:/Users/" + directoryMaster + "/smudger/smudger/testReplace_smudged.txt");
 
 			Assert::IsTrue(amountAfter > amountBefore);
 		}
@@ -116,9 +116,9 @@ namespace Tests
 				with _smudged	i.e. test.txt --> test_smudged.txt
 			*/
 
-			int amountBefore = countInstances("TDD", "C:/Users/" + directoryMaster + "/smudger/smudger/test.txt");
-			addWords("TDD", "C:/Users/" + directoryMaster + "/smudger/smudger/test.txt");
-			int amountAfter = countInstances("TDD", "C:/Users/" + directoryMaster + "/smudger/smudger/test_smudged.txt");
+			int amountBefore = countInstances("TDDAGAIN", "C:/Users/" + directoryMaster + "/smudger/smudger/testAdd.txt");
+			addWords("TDDAGAIN", "C:/Users/" + directoryMaster + "/smudger/smudger/testAdd.txt");
+			int amountAfter = countInstances("TDDAGAIN", "C:/Users/" + directoryMaster + "/smudger/smudger/testAdd_smudged.txt");
 
 			Assert::IsTrue(amountAfter > amountBefore);
 		}

@@ -1,0 +1,1 @@
+Welcome to smudger. This is a program that will ask a user for the path of a textfile TDDAGAIN and also ask for a word or phrase. This word or phrase will then be used to randomly replace words from within the given textfile. Give it a shot and smudge your files! 
