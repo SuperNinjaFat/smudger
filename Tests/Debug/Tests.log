@@ -1,3 +1,4 @@
 ﻿  tests.cpp
 c:\users\super\documents\github\smudger\smudger\smudger.cpp(174): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+     Creating library C:\Users\super\Documents\GitHub\smudger\smudger\Debug\tests.lib and object C:\Users\super\Documents\GitHub\smudger\smudger\Debug\tests.exp
   Tests.vcxproj -> C:\Users\super\Documents\GitHub\smudger\smudger\Debug\tests.dll

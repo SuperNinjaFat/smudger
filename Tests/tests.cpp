@@ -61,16 +61,26 @@ namespace Tests
 				https://simulationcorner.net/index.php?page=sam
 				Use demo.bat as an example, same.exe can only read 12 words long
 			*/
-			batOutput("demo1.bat", "C:/Users/" + directoryMaster + "/smudger/smudger/test.txt");
+			string outputName = "demo.bat";
+			batOutput(outputName, "C:/Users/" + directoryMaster + "/smudger/smudger/test.txt");
 			ifstream expectedFile;
+			vector<string> expected;
 			string expectedFileName = "C:/Users/" + directoryMaster + "/smudger/smudger/testingBat.bat";
 			expectedFile.open(expectedFileName);
 			if (expectedFile.is_open()) {
-				vector<string> contents = readFileToVector(expectedFileName);
-				for (int i = 0; i < int(contents.size()); i) {
-					//Assert::AreEqual(contents[i], actual[i]);
-				}
+				expected = readFileToVector(expectedFileName);
 				expectedFile.close();
+			}
+			ifstream actualFile;
+			vector<string> actual;
+			string actualFileName = "C:/Users/" + directoryMaster + "/smudger/smudger/" + outputName;
+			actualFile.open(expectedFileName);
+			if (actualFile.is_open()) {
+				vector<string> contents = readFileToVector(expectedFileName);
+				actualFile.close();
+			}
+			for (int i = 0; i < int(expected.size()); i++) {
+					Assert::AreEqual(expected[i], actual[i]);
 			}
 		}
 	};
