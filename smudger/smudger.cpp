@@ -13,11 +13,6 @@ using namespace std;
 
 const string directoryMaster = "weeks/Documents/college-directory/year-4/semester-2/software-dev-methods"; //"super/Documents/GitHub"; 
 
-struct argument {
-	string phrase;
-	string filename;
-	string command;
-};
 
 int countInstances(string phrase, string filename) {
 	// Will check how many instances of the given phrase exist within the filename

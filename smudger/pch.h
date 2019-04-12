@@ -13,11 +13,19 @@
 
 using namespace std;
 
+struct argument {
+	string phrase;
+	string filename;
+	string command;
+};
+
 // TODO: add headers that you want to pre-compile here
 void replaceWords(string phrase, string filename);
 void addWords(string phrase, string filename);
 int countInstances(string phrase, string filename);
-int countInstanceWrapper(string phrase, string filename);
-
+argument argumentHandler(int argc, char* argv[]);
+string* batOutput(string batName, string source);
+void show_usage(string name);
+int argumentEnough(int argc, char* argv[]);
 
 #endif //PCH_H

@@ -33,7 +33,19 @@ namespace Tests
 		}
 		TEST_METHOD(TestArgumentHandler)
 		{
-			argumentHandler(argc, argv);
+			int argc = 5;
+			char* argv[5];
+			argv[0] = "smudger.exe";
+			argv[1] = "-d";
+			argv[2] = "test.txt";
+			argv[3] = "-r";
+			argv[4] = "hello";
+			argument actual = argumentHandler(argc, argv);
+			argument expected;
+			expected.command = "-r";
+			expected.filename = "test.txt";
+			expected.phrase = "hello";
+			Assert::AreEqual((expected.command + expected.filename + expected.phrase), (actual.command + actual.filename + actual.phrase));
 		}
 	};
 
@@ -48,7 +60,7 @@ namespace Tests
 				Use demo.bat as an example, same.exe can only read 12 words long
 			*/
 			int argc = 3;
-			char* argv[3];
+			//char* argv[3];
 			string* actual = batOutput("demo1", "C:/Users/" + directoryMaster + "/smudger/smudger/test.txt");
 			string expected[6];
 			ifstream file("C:/Users/" + directoryMaster + "/smudger/smudger/demo.bat");
