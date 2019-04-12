@@ -13,7 +13,7 @@
 
 using namespace std;
 
-const string directoryMaster = "super/Documents/GitHub"; //"weeks/Documents/college-directory/year-4/semester-2/software-dev-methods"; 
+const string directoryMaster = "weeks/Documents/college-directory/year-4/semester-2/software-dev-methods"; //"super/Documents/GitHub";
 
 
 string readFile(string filename) {

@@ -63,25 +63,13 @@ namespace Tests
 			*/
 			string outputName = "demo.bat";
 			batOutput(outputName, "C:/Users/" + directoryMaster + "/smudger/smudger/test.txt");
-			ifstream expectedFile;
-			vector<string> expected;
 			string expectedFileName = "C:/Users/" + directoryMaster + "/smudger/smudger/testingBat.bat";
-			expectedFile.open(expectedFileName);
-			if (expectedFile.is_open()) {
-				expected = readFileToVector(expectedFileName);
-				expectedFile.close();
-			}
-			ifstream actualFile;
-			vector<string> actual;
+			string expected = readFile(expectedFileName);
+
 			string actualFileName = "C:/Users/" + directoryMaster + "/smudger/smudger/" + outputName;
-			actualFile.open(expectedFileName);
-			if (actualFile.is_open()) {
-				vector<string> contents = readFileToVector(expectedFileName);
-				actualFile.close();
-			}
-			for (int i = 0; i < int(expected.size()); i++) {
-					Assert::AreEqual(expected[i], actual[i]);
-			}
+			string actual = readFile(actualFileName);
+			
+			Assert::AreEqual(expected, actual);
 		}
 	};
 
