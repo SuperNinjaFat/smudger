@@ -31,6 +31,10 @@ namespace Tests
 			argv[1] = "NotEnoughArguments";
 			argumentEnough(argc, argv);
 		}
+		TEST_METHOD(TestArgumentHandler)
+		{
+			argumentHandler(argc, argv);
+		}
 	};
 
 	TEST_CLASS(VOX)
@@ -69,14 +73,14 @@ namespace Tests
 				the passed phrase / word appears within the given filename
 			*/
 			int expected = 3;
-			int actual = countInstanceWrapper("word", "C:/Users/" + directoryMaster + "/smudger/smudger/test.txt");
+			int actual = countInstances("word", "C:/Users/" + directoryMaster + "/smudger/smudger/test.txt");
 			Assert::AreEqual(expected, actual);
 		}
 
 		TEST_METHOD(ReplaceWordsCount) {
 			/*
 				replaceWords(string, string):
-				replaceWords should use the given phrase and replace
+				replaceWords should use the given phrase and replace 
 				words within the given string randomly
 
 				Replace words should output to a file with the same name but suffixed

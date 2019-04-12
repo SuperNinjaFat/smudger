@@ -14,7 +14,6 @@
 using namespace std;
 
 // TODO: add headers that you want to pre-compile here
-void printMessage();
 void replaceWords(string phrase, string filename);
 void addWords(string phrase, string filename);
 int countInstances(string phrase, string filename);

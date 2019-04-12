@@ -11,11 +11,13 @@
 
 using namespace std;
 
-const string directoryMaster = "super/Documents/GitHub"; //"weeks/Documents/college-directory/year-4/semester-2/software-dev-methods";
+const string directoryMaster = "weeks/Documents/college-directory/year-4/semester-2/software-dev-methods"; //"super/Documents/GitHub"; 
 
-int countInstanceWrapper(string phrase, string filename) {
-	return countInstances(phrase, filename);
-}
+struct argument {
+	string phrase;
+	string filename;
+	string command;
+};
 
 int countInstances(string phrase, string filename) {
 	// Will check how many instances of the given phrase exist within the filename
@@ -67,6 +69,32 @@ string* batOutput(string batName, string source) {
 	return NULL;
 }
 
+/*
+Arguments entered should be 
+[0] program name
+[1] -d or a -h
+[2] filename
+[3] -r  or -a
+[4] the word
+*/
+argument argumentHandler(int argc, char* argv[]) {
+	argument obj;
+	if (argc == 5) {
+		if (argv[1] == "-h") {
+			show_usage(argv[1]);
+		}
+		else if (argv[1] == "-d") {
+			if (argv[3] == "-r" || argv[3] == "-a") {
+				obj.filename = argv[2];
+				obj.command = argv[3];
+				obj.phrase = argv[4];
+				return obj;
+			}
+		}
+	} 
+	return obj;
+}
+
 void show_usage(string name) {
 	std::cerr << "Usage: " << name << " <option(s)> SOURCES"
               << "Options:\n"
@@ -74,8 +102,9 @@ void show_usage(string name) {
               << "\t-d,--destination DESTINATION\tSpecify the destination path"
               << std::endl;
 }
+
 int argumentEnough(int argc, char* argv[]) {
-	if (argc < 3) {
+	if (argc < 5) {
 		show_usage(argv[0]);
 		return 1;
 	}
