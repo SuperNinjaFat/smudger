@@ -1,8 +1,11 @@
 ﻿  stdafx.cpp
   tests.cpp
+c:\users\super\documents\github\smudger\tests\tests.cpp(47): warning C4101: 'argv': unreferenced local variable
 LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
-     Creating library C:\Users\weeks\Documents\college-directory\year-4\semester-2\software-dev-methods\smudger\smudger\Release\tests.lib and object C:\Users\weeks\Documents\college-directory\year-4\semester-2\software-dev-methods\smudger\smudger\Release\tests.exp
+     Creating library C:\Users\super\Documents\GitHub\smudger\smudger\Release\tests.lib and object C:\Users\super\Documents\GitHub\smudger\smudger\Release\tests.exp
   Generating code
-  All 333 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  383 of 396 functions (96.7%) were compiled, the rest were copied from previous compilation.
+    64 functions were new in current compilation
+    3 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  Tests.vcxproj -> C:\Users\weeks\Documents\college-directory\year-4\semester-2\software-dev-methods\smudger\smudger\Release\tests.dll
+  Tests.vcxproj -> C:\Users\super\Documents\GitHub\smudger\smudger\Release\tests.dll

@@ -13,7 +13,49 @@ namespace Tests
 		
 		TEST_METHOD(TestPrintMessage)
 		{
-			printMessage();
+			show_usage("smudger.exe");
+		}
+		TEST_METHOD(TestArgumentNotEnough)
+		{
+			int argc = 2;
+			char* argv[2];
+			argv[0] = "smudger.exe";
+			argv[1] = "NotEnoughArguments";
+			argumentEnough(argc, argv);
+		}
+		TEST_METHOD(TestArgumentEnough)
+		{
+			int argc = 2;
+			char* argv[2];
+			argv[0] = "smudger.exe";
+			argv[1] = "NotEnoughArguments";
+			argumentEnough(argc, argv);
+		}
+	};
+
+	TEST_CLASS(VOX)
+	{
+	public:
+		TEST_METHOD(SamOutput) {
+			/*
+				batOutput(int, char*[]) :
+				outputs a bat file that can read it out loud with this program
+				https://simulationcorner.net/index.php?page=sam
+				Use demo.bat as an example, same.exe can only read 12 words long
+			*/
+			int argc = 3;
+			char* argv[3];
+			string* actual = batOutput("demo1", "C:/Users/" + directoryMaster + "/smudger/smudger/test.txt");
+			string expected[6];
+			ifstream file("C:/Users/" + directoryMaster + "/smudger/smudger/demo.bat");
+			string myArray[6];
+			if (file.is_open()) {
+				for (int i = 0; i < sizeof(actual); i++)
+				{
+					file >> expected[i];
+					Assert::AreEqual(expected[i], actual[i]);
+				}
+			}
 		}
 	};
 
@@ -27,7 +69,7 @@ namespace Tests
 				the passed phrase / word appears within the given filename
 			*/
 			int expected = 3;
-			int actual = countInstanceWrapper("word", "C:/Users/weeks/Documents/college-directory/year-4/semester-2/software-dev-methods/smudger/smudger/test.txt");
+			int actual = countInstanceWrapper("word", "C:/Users/" + directoryMaster + "/smudger/smudger/test.txt");
 			Assert::AreEqual(expected, actual);
 		}
 
@@ -41,9 +83,9 @@ namespace Tests
 				with _smudged	i.e. test.txt --> test_smudged.txt
 			*/
 
-			int amountBefore = countInstances("TDD", "C:/Users/weeks/Documents/college-directory/year-4/semester-2/software-dev-methods/smudger/smudger/test.txt");
-			replaceWords("TDD", "C:/Users/weeks/Documents/college-directory/year-4/semester-2/software-dev-methods/smudger/smudger/test.txt");
-			int amountAfter = countInstances("TDD", "C:/Users/weeks/Documents/college-directory/year-4/semester-2/software-dev-methods/smudger/smudger/test_smudged.txt");
+			int amountBefore = countInstances("TDD", "C:/Users/" + directoryMaster + "/smudger/smudger/test.txt");
+			replaceWords("TDD", "C:/Users/" + directoryMaster + "/smudger/smudger/test.txt");
+			int amountAfter = countInstances("TDD", "C:/Users/" + directoryMaster + "/smudger/smudger/test_smudged.txt");
 
 			Assert::IsTrue(amountAfter > amountBefore);
 		}
@@ -60,9 +102,9 @@ namespace Tests
 				with _smudged	i.e. test.txt --> test_smudged.txt
 			*/
 
-			int amountBefore = countInstances("TDD", "C:/Users/weeks/Documents/college-directory/year-4/semester-2/software-dev-methods/smudger/smudger/test.txt");
-			addWords("TDD", "C:/Users/weeks/Documents/college-directory/year-4/semester-2/software-dev-methods/smudger/smudger/test.txt");
-			int amountAfter = countInstances("TDD", "C:/Users/weeks/Documents/college-directory/year-4/semester-2/software-dev-methods/smudger/smudger/test_smudged.txt");
+			int amountBefore = countInstances("TDD", "C:/Users/" + directoryMaster + "/smudger/smudger/test.txt");
+			addWords("TDD", "C:/Users/" + directoryMaster + "/smudger/smudger/test.txt");
+			int amountAfter = countInstances("TDD", "C:/Users/" + directoryMaster + "/smudger/smudger/test_smudged.txt");
 
 			Assert::IsTrue(amountAfter > amountBefore);
 		}

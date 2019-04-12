@@ -11,6 +11,8 @@
 
 using namespace std;
 
+const string directoryMaster = "super/Documents/GitHub"; //"weeks/Documents/college-directory/year-4/semester-2/software-dev-methods";
+
 int countInstanceWrapper(string phrase, string filename) {
 	return countInstances(phrase, filename);
 }
@@ -61,13 +63,34 @@ void addWords(string phrase, string filename) {
 
 }
 
-void printMessage() {
-	std::cout << "Hello World!\n";
+string* batOutput(string batName, string source) {
+	return NULL;
 }
 
-int main()
+void show_usage(string name) {
+	std::cerr << "Usage: " << name << " <option(s)> SOURCES"
+              << "Options:\n"
+              << "\t-h,--help\t\tShow this help message\n"
+              << "\t-d,--destination DESTINATION\tSpecify the destination path"
+              << std::endl;
+}
+int argumentEnough(int argc, char* argv[]) {
+	if (argc < 3) {
+		show_usage(argv[0]);
+		return 1;
+	}
+	else {
+		return 0;
+	}
+	return 2;
+}
+
+int main(int argc, char* argv[])
 {
-	cout << countInstances("word", "C:/Users/weeks/Documents/college-directory/year-4/semester-2/software-dev-methods/smudger/smudger/test.txt");
+	if (argumentEnough(argc, argv) == 1)
+		return 1;
+	
+	cout << countInstances("word", "C:/Users/" + directoryMaster + "/smudger/smudger/test.txt");
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
