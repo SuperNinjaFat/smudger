@@ -24,8 +24,8 @@ namespace Tests
 		}
 		TEST_METHOD(TestArgumentEnough)
 		{
-			int argc = 2;
-			char* argv[2];
+			int argc = 5;
+			char* argv[5];
 			argv[0] = "smudger.exe";
 			argv[1] = "-d";
 			argv[2] = "test.txt";
