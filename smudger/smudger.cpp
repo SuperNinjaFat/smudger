@@ -182,10 +182,10 @@ void batOutput(string batName, string source) {
 		vector<string> contents = readFileToVector(source);
 		batch << "cd ..\n";
 		for (int i = 0; i < int(contents.size()); i++) {
-			batch << "sam " << contents[i].c_str() << endl;
+			batch << "\nsam " << contents[i].c_str();
 		}
-		batch.close();
 	}
+	batch.close();
 }
 
 /*
