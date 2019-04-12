@@ -14,16 +14,34 @@ using namespace std;
 const string directoryMaster = "weeks/Documents/college-directory/year-4/semester-2/software-dev-methods"; //"super/Documents/GitHub"; 
 
 
-int countInstances(string phrase, string filename) {
-	// Will check how many instances of the given phrase exist within the filename
+string readFile(string filename) {
+	string contents = "";
 	ifstream file;
 	file.open(filename);
 	if (file.is_open()) {
 		stringstream buffer;
 		buffer << file.rdbuf();
 		file.close();
-		string contents = buffer.str();
-		
+		contents = buffer.str();
+	}
+	return contents;
+}
+
+vector<string> readFileToVector(string filename) {
+	vector<string> contents;
+	string word;
+	ifstream file;
+	file.open(filename);
+	while (file >> word) {
+		contents.push_back(word);
+	}
+	return contents;
+}
+
+int countInstances(string phrase, string filename) {
+	// Will check how many instances of the given phrase exist within the filename
+	string contents = readFile(filename);
+	if (contents != "") {
 		int fileLength = contents.length();
 		int phraseLength = phrase.length();
 		int instances = 0;
@@ -60,8 +78,17 @@ void addWords(string phrase, string filename) {
 
 }
 
-string* batOutput(string batName, string source) {
-	return NULL;
+void batOutput(string batName, string source) {
+	ofstream batch;
+	batch.open(batName);
+	if (batch.is_open()) {
+		vector<string> contents = readFileToVector(source);
+		batch << "cd ..\n";
+		for (int i = 0; i < int(contents.size()); i++) {
+			batch << "sam " << contents[i].c_str() << endl;
+		}
+		batch.close();
+	}
 }
 
 /*
@@ -111,8 +138,9 @@ int argumentEnough(int argc, char* argv[]) {
 
 int main(int argc, char* argv[])
 {
-	if (argumentEnough(argc, argv) == 1)
-		return 1;
+	batOutput("testingBat.bat", "C:/Users/" + directoryMaster + "/smudger/smudger/test.txt");
+	/*if (argumentEnough(argc, argv) == 1)
+		return 1;*/
 	
 	cout << countInstances("word", "C:/Users/" + directoryMaster + "/smudger/smudger/test.txt");
 }

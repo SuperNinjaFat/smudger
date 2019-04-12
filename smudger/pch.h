@@ -10,6 +10,7 @@
 #define PCH_H
 
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -24,8 +25,10 @@ void replaceWords(string phrase, string filename);
 void addWords(string phrase, string filename);
 int countInstances(string phrase, string filename);
 argument argumentHandler(int argc, char* argv[]);
-string* batOutput(string batName, string source);
+void batOutput(string batName, string source);
 void show_usage(string name);
 int argumentEnough(int argc, char* argv[]);
+// vector<string> readFileToVector(string filename);
+string readFile(string filename);
 
 #endif //PCH_H

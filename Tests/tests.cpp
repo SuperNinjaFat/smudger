@@ -61,7 +61,7 @@ namespace Tests
 			*/
 			int argc = 3;
 			//char* argv[3];
-			string* actual = batOutput("demo1", "C:/Users/" + directoryMaster + "/smudger/smudger/test.txt");
+			string* actual = batOutput("demo1.bat", "C:/Users/" + directoryMaster + "/smudger/smudger/test.txt");
 			string expected[6];
 			ifstream file("C:/Users/" + directoryMaster + "/smudger/smudger/demo.bat");
 			string myArray[6];
