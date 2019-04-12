@@ -67,7 +67,7 @@ namespace Tests
 			expectedFile.open(expectedFileName);
 			if (expectedFile.is_open()) {
 				vector<string> contents = readFileToVector(expectedFileName);
-				for (int i = 0; i < int(contents.size()); i) {
+				for (int i = 0; i < int(contents.size()); i++) {
 					//Assert::AreEqual(contents[i], actual[i]);
 				}
 				expectedFile.close();
